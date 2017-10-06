@@ -13,7 +13,7 @@ RUN apt-get update && \
 WORKDIR /root/qemu
 ADD https://download.qemu.org/qemu-2.10.1.tar.xz .
 RUN tar xJf qemu-2.10.1.tar.xz --strip-components=1 --overwrite && \
-    ./configure --target-list=arm-softmmu,arm-linux-user,armeb-linux-user && \
+    ./configure && \
     make -j`grep -c ^processor /proc/cpuinfo` && \
     make install && \
     qemu-system-arm --version && \
